@@ -12,7 +12,7 @@ To use the app, download the source code and run it in on your php server.
 You will need to create a psql database with the following tables and attributes:<br />
 psql commands: <br />
 CREATE DATABASE hair_salon; <br />
-\c hair_salon
+\c hair_salon <br />
 CREATE TABLE stylist (id serial PRIMARY KEY, name varchar);<br />
 CREATE TABLE client (id serial PRIMARY KEY, name varchar, stylist_id int);<br />
 CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon; <br />
