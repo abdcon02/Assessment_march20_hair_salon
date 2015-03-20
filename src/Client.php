@@ -52,8 +52,8 @@
 
         function save()
         {
-            $statment = $GLOBALS['DB']->query("INSERT INTO clinet (name, stylist_id) VALUES ('{$this->getName()}', {$this->stylist_id}) RETURNING id;");
-            $result = $statment->fetch(PDO::FETCH_ASSOC);
+            $statement = $GLOBALS['DB']->query("INSERT INTO client (name, stylist_id) VALUES ('{$this->getName()}', {$this->getStylistId()}) RETURNING id;");
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
             $this->setId($result['id']);
         }
 
@@ -77,7 +77,7 @@
             {
                 $name = $person['name'];
                 $id = $person['id'];
-                $stylist_id = $person['id'];
+                $stylist_id = $person['stylist_id'];
                 $client = new Client($name, $id, $stylist_id);
                 array_push($return_clients, $client);
             }
