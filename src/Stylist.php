@@ -40,29 +40,29 @@
 
         function save()
         {
-            // $statment = $GLOBALS['DB']->query("INSERT INTO stylist (name) VALUES ('{$this->getName()}') RETURNING id;");
-            // $result = $statment->fetch(PDO::FETCH_ASSOC);
-            // $this->setID['id'];
+            $statment = $GLOBALS['DB']->query("INSERT INTO stylist (name) VALUES ('{$this->getName()}') RETURNING id;");
+            $result = $statment->fetch(PDO::FETCH_ASSOC);
+            $this->setId($result['id']);
         }
 
         static function getAll()
         {
-            // $all_stylists = $GLOBALS['DB']->query("SELECT * FROM stylists;");
-            // $return_stylists = array();
-            //
-            // foreach($all_stylists as $person)
-            // {
-            //     $name = $person['name'];
-            //     $id = $person['id'];
-            //     $stylist = new Stylist($name, $id);
-            //     array_push($return_stylists, $stylist);
-            // }
-            // return $return_stylists;
+            $all_stylists = $GLOBALS['DB']->query("SELECT * FROM stylist;");
+            $return_stylists = array();
+
+            foreach($all_stylists as $person)
+            {
+                $name = $person['name'];
+                $id = $person['id'];
+                $stylist = new Stylist($name, $id);
+                array_push($return_stylists, $stylist);
+            }
+            return $return_stylists;
         }
 
         static function deleteAll()
         {
-            // $GLOBALS['DB']->exec("DELETE FROM stylist *;");
+            $GLOBALS['DB']->exec("DELETE FROM stylist *;");
         }
 
 
