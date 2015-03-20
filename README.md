@@ -10,9 +10,12 @@ This hair_salon app will let the user create a list of stylists and clients who 
 ##Use and Editing
 To use the app, download the source code and run it in on your php server.
 You will need to create a psql database with the following tables and attributes:<br />
-database: hair_salon <br />
-stylist- id serial PRIMARY KEY, s_name varchar.<br />
-client - id serial PRIMARY KEY, c_name varchar, stylist_id int.<br />
+psql commands: <br />
+CREATE DATABASE hair_salon; <br />
+\c hair_salon
+CREATE TABLE stylist (id serial PRIMARY KEY, name varchar);<br />
+CREATE TABLE client (id serial PRIMARY KEY, name varchar, stylist_id int);<br />
+CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon; <br />
 
 To edit the app, download the source code and open it in your text editor. <br />
     *Note: If you are copying any of the code to your own directories, you need to install Composer

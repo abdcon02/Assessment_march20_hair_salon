@@ -3,7 +3,7 @@
     <head>
         <title>Stylists Page</title>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
+        <link rel="stylesheet" href="styles.css" type="text/css">
     </head>
     <body>
         <div class="container">
@@ -14,7 +14,7 @@
                 <ul>
                     {% for person in stylists %}
                         <li>
-                            <a href="/stylists/{{ person.getId }}">{{ person.getName }}</a>
+                            <a href="/stylists/{{ person.getId }}"><button type="submit">{{ person.getName }}</button></a>
                         </li>
                     {% endfor %}
                 </ul>

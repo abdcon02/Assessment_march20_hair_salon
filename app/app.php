@@ -15,10 +15,10 @@
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
 
-// Begin routes
+// Routs to index page with list of stylist
 
     $app->get('/', function() use ($app){
-
+        
         return $app['twig']->render('stylists.html.twig', array('stylists' => Stylist::getAll()));
     });
 
@@ -34,6 +34,8 @@
         Stylist::deleteAll();
         return $app['twig']->render('stylists.html.twig', array('stylists' => Stylist::getAll()));
     });
+
+// Routes to individual stylist pages
 
     $app->get("/stylists/{id}", function($id) use ($app) {
         $current_stylist = Stylist::find($id);
