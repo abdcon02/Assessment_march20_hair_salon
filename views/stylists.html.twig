@@ -1,0 +1,36 @@
+<!DOCTYPE hmtl>
+<html>
+    <head>
+        <title>Stylists Page</title>
+
+    </head>
+    <body>
+        <div class="container">
+            <h1>Welcome to this hair salon</h1>
+
+            {% if stylists is not empty %}
+                <h3>Here are your Stylists:</h3>
+                <ul>
+                    {% for person in stylists %}
+                        <li> {{ person.getName }}</li>
+                    {% endfor %}
+                </ul>
+                {% else%}
+                    <h3>There aren't any Stylists</h3>
+            {% endif %}
+
+            <form action="/stylists" method="post">
+                <label for="name">Enter a Stylist:</label>
+                <input type="text" name="name">
+
+                <button name="submit">Create!</button>
+            </form>
+
+            <form action="/stylists_deleteAll" method="post">
+                
+                <button name="submit">Delete All Stylists</button>
+
+            </form>
+        </div>
+    </body>
+</html>

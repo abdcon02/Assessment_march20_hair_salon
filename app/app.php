@@ -16,12 +16,37 @@
 
 // Begin routes
 
-    $app->get('/', function() use ($app){
-        return "Hello World";
+    $app->get('/stylists', function() use ($app){
+
+        return $app['twig']->render('stylists.html.twig', array('stylists' => Stylist::getAll()));
     });
 
+    $app->post('/stylists', function() use ($app) {
+
+        $new_stylist = new Stylist($_POST['name']);
+        $new_stylist->save();
+
+        return $app['twig']->render('stylists.html.twig', array('stylists' => Stylist::getAll()));
+    });
+
+    $app->post('/stylists_deleteAll', function() use ($app) {
+
+        Stylist::deleteAll();
+
+        return $app['twig']->render('stylists.html.twig', array('stylists' => Stylist::getAll()));
+    });
+
+    // $app->get("/stylists/{id}", function($id) use ($app) {
+    //     $current_stylist = Stylist::find($id);
+    //     return $app['twig']->render('stylists.html.twig', array('stylist' => $current_stylist, 'restaurants' => Restaurant::getAll()));
+    // });
+    //
 
 // End routes and return $app
+
+
+
+
 
     return $app;
 
