@@ -193,7 +193,7 @@
 
             //Assert
             $result = $test_client->getName();
-            $this->assertEquals($test_client, $result);
+            $this->assertEquals("Zed", $result);
         }
 
         function test_delete()
@@ -212,7 +212,7 @@
             $name2 = "Darren";
             $id2 = 4;
             $test_client2 = new Client($name2, $id2, $stylist_id);
-            $test_client->save();
+            $test_client2->save();
 
             //Act
             $test_client2->delete();

@@ -59,13 +59,13 @@
 
         function update($new_name)
         {
-            $GLOBALS['DB']->exec("UPDATE stylist SET name = {'$new_name'} WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("UPDATE client SET name = {'$new_name'} WHERE id = {$this->getId()};");
             $this->setName($new_name);
         }
 
         function delete()
         {
-            $GLOBALS['DB']->exec("DELETE FROM client WHERE name = {$this->getName()};");
+            $GLOBALS['DB']->exec("DELETE FROM client WHERE id = {$this->getId()};");
         }
 
         static function getAll()
@@ -91,7 +91,16 @@
 
         static function find($search_id)
         {
-            
+            $found_client = null;
+            $all_clients = Client::getAll();
+
+            foreach($all_clients as $person){
+                if($person->getId() == $search_id){
+                    $found_client = $person;
+                }
+            }
+
+            return $found_client;
         }
 
 
