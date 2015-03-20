@@ -12,7 +12,11 @@
                     <p>Here are the clients:</p>
                     <ul>
                         {% for person in clients %}
-                            <li>{{ person.getName }}</li>
+                            <li>
+                                {{ person.getName }}
+                                <a href="/client/{{ person.getId }}/edit"><button type="submit">Edit Client</button></a>
+                            </li>
+
                         {% endfor %}
                     </ul>
 
@@ -28,7 +32,7 @@
                 <form action="/client_add" method="post">
                     <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
                     <label for="name">Client name:</label>
-                    <input id="name" name="name" type="text">
+                    <input id="name" name="name" type="text" required>
 
                     <button type="submit" class="btn-success">Add Client</button>
                 </form>
