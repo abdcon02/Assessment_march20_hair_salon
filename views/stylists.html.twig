@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Stylists Page</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
     </head>
     <body>
@@ -17,6 +18,7 @@
                         </li>
                     {% endfor %}
                 </ul>
+
                 {% else%}
                     <h3>There aren't any Stylists</h3>
             {% endif %}
@@ -31,6 +33,8 @@
             <form action="/stylists_deleteAll" method="post">
                 <button name="submit">Delete All Stylists</button>
             </form>
+
+
         </div>
     </body>
 </html>

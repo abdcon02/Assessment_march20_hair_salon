@@ -40,6 +40,16 @@
         return $app['twig']->render('stylist_page.html.twig', array('stylist' => $current_stylist, 'clients' => $current_stylist->findClients()));
     });
 
+    $app->post("/clients_deleteAll", function() use($app){
+        $stylist_id = $_POST['stylist_id'];
+        $current_stylist = Stylist::find($stylist_id);
+        $clients = $current_stylist->findClients();
+        foreach($clients as $person){
+            $person->delete();
+        }
+        return $app['twig']->render('stylist_page.html.twig', array('stylist' => $current_stylist, 'clients' => $current_stylist->findClients()));
+    });
+
     $app->post("client_add", function() use ($app){
 
         $stylist_id = $_POST['stylist_id'];

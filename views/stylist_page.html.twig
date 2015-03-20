@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Stylist Page</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     </head>
     <body>
         <div class="container">
@@ -14,25 +15,28 @@
                             <li>{{ person.getName }}</li>
                         {% endfor %}
                     </ul>
+
+                    <form action="/clients_deleteAll" method="post">
+                        <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
+                        <button type="submit">Delete All Clients for this Stylist</button>
+                    </form>
                 {% endif %}
 
 
-                    <p>Create a new Client:</p>
+                <p>Create a new Client:</p>
 
-                    <form action="/client_add" method="post">
-                      <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
-                      <label for="name">Client name:</label>
-                      <input id="name" name="name" type="text">
+                <form action="/client_add" method="post">
+                    <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
+                    <label for="name">Client name:</label>
+                    <input id="name" name="name" type="text">
 
-                      <button type="submit">Add Client</button>
-                    </form>
-
-                <p><a href='/'>Back to all Stylists</a></p>
-                <a href="/stylists/{{ stylist.getId }}/edit">Edit</a>
-                <form action="/stylists/{{ stylist.getId }}" method="post">
-                  <input name="_method" type="hidden" value="delete">
-                  <button type="submit">Delete</button>
+                    <button type="submit" class="btn-success">Add Client</button>
                 </form>
+
+                <a href='/'><button type="submit">Back to all Stylists</button></a>
+                <a href="/stylists/{{ stylist.getId }}/edit"><button type="submit">Edit Stylist</button></a>
+
+
         </div>
     </body>
 </html>
