@@ -45,6 +45,16 @@
             $this->setId($result['id']);
         }
 
+        function update($new_name)
+        {
+
+        }
+
+        function delete()
+        {
+
+        }
+
         static function getAll()
         {
             $all_stylists = $GLOBALS['DB']->query("SELECT * FROM stylist;");
@@ -64,6 +74,12 @@
         {
             $GLOBALS['DB']->exec("DELETE FROM stylist *;");
         }
+
+        static function find($search_id)
+        {
+
+        }
+
 
 
 
