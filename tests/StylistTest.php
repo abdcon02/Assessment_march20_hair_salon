@@ -163,6 +163,28 @@
             $this->assertEquals($test_stylist, $result);
         }
 
+        function test_findClients()
+        {
+            //arrange
+
+            $s_name = "Semus";
+            $id = 1;
+            $test_stylist = new Stylist($s_name, $id);
+            $test_stylist->save();
+            $stylist_id = $test_stylist->getId();
+
+            $name = "Zingo";
+            $test_client = new Client($name, $id, $stylist_id);
+            $test_client->save();
+
+            //Act
+            $result = $test_stylist->findClients();
+
+            //Assert
+            $this->assertEquals([$test_client], $result);
+
+        }
+
 
 
 

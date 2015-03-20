@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stylist Page</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>You selected {{ stylist.getName }}!</h1>
+
+                {% if clients is not empty %}
+                    <p>Here are the clients:</p>
+                    <ul>
+                        {% for person in clients %}
+                            <li>{{ person.getName }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+
+                    <p>Create a new Client:</p>
+
+                    <form action="/client_add" method="post">
+                      <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
+                      <label for="name">Client name:</label>
+                      <input id="name" name="name" type="text">
+
+                      <button type="submit">Add Client</button>
+                    </form>
+
+                <p><a href='/'>Back to all Stylists</a></p>
+                <a href="/stylists/{{ stylist.getId }}/edit">Edit</a>
+                <form action="/stylists/{{ stylist.getId }}" method="post">
+                  <input name="_method" type="hidden" value="delete">
+                  <button type="submit">Delete</button>
+                </form>
+        </div>
+    </body>
+</html>

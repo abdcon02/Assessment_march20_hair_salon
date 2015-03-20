@@ -6,13 +6,15 @@
     </head>
     <body>
         <div class="container">
-            <h1>Welcome to this hair salon</h1>
+            <h1>Welcome to your hair salon</h1>
 
             {% if stylists is not empty %}
                 <h3>Here are your Stylists:</h3>
                 <ul>
                     {% for person in stylists %}
-                        <li> {{ person.getName }}</li>
+                        <li>
+                            <a href="/stylists/{{ person.getId }}">{{ person.getName }}</a>
+                        </li>
                     {% endfor %}
                 </ul>
                 {% else%}
@@ -27,9 +29,7 @@
             </form>
 
             <form action="/stylists_deleteAll" method="post">
-                
                 <button name="submit">Delete All Stylists</button>
-
             </form>
         </div>
     </body>
