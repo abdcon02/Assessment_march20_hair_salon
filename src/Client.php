@@ -89,6 +89,11 @@
             $GLOBALS['DB']->exec("DELETE FROM client *;");
         }
 
+        static function find($search_id)
+        {
+            
+        }
+
 
 
 
