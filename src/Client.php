@@ -12,7 +12,7 @@
         {
             $this->name = $name;
             $this->id = $id;
-            $this->stylist_id = $stylist_id
+            $this->stylist_id = $stylist_id;
 
         }
 

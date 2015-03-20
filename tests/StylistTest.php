@@ -12,6 +12,7 @@
     class StylistTest extends PHPUnit_Framework_TestCase
     {
 
+    // Clear the stylist database
         protected function tearDown()
         {
             Stylist::deleteAll();
